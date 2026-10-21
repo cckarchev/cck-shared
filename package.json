@@ -1,0 +1,23 @@
+{
+  "name": "@cckarchev/shared",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shared tooling configuration for CCK projects.",
+  "type": "module",
+  "exports": {
+    "./biome": "./biome.jsonc"
+  },
+  "files": [
+    "biome.jsonc"
+  ],
+  "scripts": {
+    "check": "biome check",
+    "check:fix": "biome check --write"
+  },
+  "peerDependencies": {
+    "@biomejs/biome": "^2.6.2"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.6.2"
+  }
+}

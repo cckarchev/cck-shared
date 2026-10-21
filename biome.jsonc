@@ -1,0 +1,85 @@
+// Shared Biome preset for CCK projects. Projects consume it with
+// `"extends": ["@cckarchev/shared/biome"]` and add only what is specific to them.
+// Formatter options left out on purpose use Biome's defaults: double quotes,
+// line width 80, trailing commas everywhere, semicolons always.
+{
+  "$schema": "https://biomejs.dev/schemas/2.6.2/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "formatter": {
+    "indentStyle": "space"
+  },
+  "css": {
+    "parser": {
+      // Allows `composes` and `:global` in *.module.css.
+      "cssModules": true
+    }
+  },
+  "linter": {
+    "rules": {
+      "preset": "recommended",
+      "complexity": {
+        "noExcessiveCognitiveComplexity": "error",
+        "noExcessiveLinesPerFunction": {
+          "level": "error",
+          "options": {
+            "skipBlankLines": true
+          }
+        },
+        "noForEach": "error",
+        "useArrowFunction": "error"
+      },
+      "style": {
+        "noDefaultExport": "error",
+        "noMagicNumbers": "error",
+        "noNegationElse": "error",
+        "noNestedTernary": "error",
+        "noNonNullAssertion": "error",
+        "noParameterAssign": "error",
+        "useBlockStatements": "error",
+        "useConsistentArrowReturn": "error",
+        "useExplicitLengthCheck": "error",
+        "useForOf": "error",
+        "useImportType": "error"
+      },
+      "performance": {
+        "noReExportAll": "error"
+      },
+      "suspicious": {
+        "noConsole": "error",
+        "noEmptyBlockStatements": "error"
+      },
+      // Nursery rules may be renamed or promoted when Biome is upgraded.
+      "nursery": {
+        "useConsistentFunctionStyle": {
+          "level": "error",
+          "options": {
+            "style": "expression"
+          }
+        },
+        "useReactFunctionComponentDefinition": {
+          "level": "error",
+          "options": {
+            "namedComponents": "arrowFunction"
+          }
+        }
+      }
+    }
+  },
+  "overrides": [
+    {
+      // Vite, Vitest and Astro only read their config from a default export.
+      "includes": ["**/*.config.ts", "**/*.config.mjs", "**/*.config.js"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off"
+          }
+        }
+      }
+    }
+  ]
+}
