@@ -8,7 +8,7 @@ without copying files around.
 Install it as a git dependency pinned to a tag, next to Biome itself:
 
 ```sh
-npm install --save-dev github:cckarchev/cck-shared#v1.0.0 @biomejs/biome@2.6.2
+npm install --save-dev github:cckarchev/cck-shared#v1.1.0 @biomejs/biome@2.6.2
 ```
 
 Then extend the preset from the project's `biome.jsonc` and add only what is
@@ -26,7 +26,10 @@ specific to that project:
 
 The preset uses Biome's formatter defaults (double quotes, line width 80,
 trailing commas everywhere) with space indentation, the `recommended` rule set,
-and a set of stricter rules on top, all reported as errors.
+and a set of stricter rules on top, all reported as errors. Those include the
+naming conventions: camelCase or PascalCase file names, camelCase identifiers
+(acronyms too, as in `parseSvg`), and CONSTANT_CASE only for module-level
+constants.
 
 ## Releasing
 

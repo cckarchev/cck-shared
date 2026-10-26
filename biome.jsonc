@@ -42,8 +42,17 @@
         "useBlockStatements": "error",
         "useConsistentArrowReturn": "error",
         "useExplicitLengthCheck": "error",
+        // Components and their files are PascalCase, everything else camelCase.
+        // Folders are kebab-case, which Biome does not check.
+        "useFilenamingConvention": {
+          "level": "error",
+          "options": {
+            "filenameCases": ["camelCase", "PascalCase"]
+          }
+        },
         "useForOf": "error",
-        "useImportType": "error"
+        "useImportType": "error",
+        "useNamingConvention": "error"
       },
       "performance": {
         "noReExportAll": "error"

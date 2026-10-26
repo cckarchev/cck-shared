@@ -1,6 +1,6 @@
 {
   "name": "@cckarchev/shared",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "description": "Shared tooling configuration for CCK projects.",
   "type": "module",
