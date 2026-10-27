@@ -17,6 +17,7 @@ import {
   FONT_SIZE,
   GOLD,
   INK_ON_ACCENT,
+  LAYER,
   MEASURE,
   RUST_LIGHT,
   SPACE,
@@ -109,6 +110,25 @@ describe("size scales", () => {
       expect(tooClose).toEqual([]);
     });
   }
+});
+
+describe("layer scale", () => {
+  it("stacks the layers from content up to toasts", () => {
+    const stackingOrder = [
+      "raised",
+      "content",
+      "bar",
+      "overlay",
+      "popover",
+      "sheet",
+      "toast",
+    ];
+    const byValue = Object.entries(LAYER)
+      .sort(([, a], [, b]) => a - b)
+      .map(([name]) => name);
+
+    expect(byValue).toEqual(stackingOrder);
+  });
 });
 
 describe("type scale", () => {
