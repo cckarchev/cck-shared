@@ -8,7 +8,7 @@ the same standards and looks the same without copying files around.
 Install it as a git dependency pinned to a tag, next to Biome itself:
 
 ```sh
-npm install --save-dev github:cckarchev/cck-shared#v1.2.0 @biomejs/biome@2.6.2
+npm install --save-dev github:cckarchev/cck-shared#v1.3.0 @biomejs/biome@2.6.3
 ```
 
 Then extend the preset from the project's `biome.jsonc` and add only what is
@@ -30,6 +30,28 @@ and a set of stricter rules on top, all reported as errors. Those include the
 naming conventions: camelCase or PascalCase file names, camelCase identifiers
 (acronyms too, as in `parseSvg`), and CONSTANT_CASE only for module-level
 constants.
+
+## TypeScript
+
+`tsconfig.base.json` holds the compiler options every project shares: bundler
+resolution, `noEmit`, `strict`, `verbatimModuleSyntax`, `erasableSyntaxOnly`
+and the unused-code checks. Extend it and add only what belongs to the
+project:
+
+```jsonc
+{
+  "extends": "@cckarchev/shared/tsconfig",
+  "compilerOptions": {
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "paths": { "@/*": ["./src/*"] }
+  },
+  "include": ["src"]
+}
+```
+
+Keep `paths` in the project: TypeScript resolves them against the file that
+declares them, which would be this package.
 
 ## Design tokens
 
@@ -85,6 +107,20 @@ The tests check every text tier and text color against the three backgrounds.
 
 Tokens that belong to one project (a card's aspect ratio, a header height, a
 game's faction colors) stay in that project, defined on top of these.
+
+## Commands
+
+Requires Node 24.21 or later (`.node-version`).
+
+| Command              | What it does                                  |
+| :------------------- | :-------------------------------------------- |
+| `npm run verify`     | Runs check, typecheck and test, as CI does    |
+| `npm run check`      | Lints and checks formatting with Biome        |
+| `npm run check:fix`  | Applies Biome's safe fixes and formatting     |
+| `npm run typecheck`  | Type checks with `tsc`                        |
+| `npm test`           | Runs the tests once                           |
+| `npm run test:watch` | Runs the tests in watch mode                  |
+| `npm run generate`   | Regenerates `tokens.css` from `src/tokens.ts` |
 
 ## Releasing
 
