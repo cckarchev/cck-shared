@@ -1,0 +1,7 @@
+/* Generated from src/tokens.ts by `npm run generate`. Do not edit by hand.
+ * Import it at the top of any stylesheet that uses these media queries; it
+ * emits no CSS of its own. Needs Lightning CSS with drafts.customMedia. */
+@custom-media --phone (max-width: 480px);
+@custom-media --below-tablet (max-width: 767.98px);
+@custom-media --tablet-up (min-width: 768px);
+@custom-media --desktop-up (min-width: 1024px);

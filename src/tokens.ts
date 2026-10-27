@@ -227,6 +227,29 @@ export const BORDER_WIDTH = {
 
 export const TOUCH_TARGET = 44;
 
+// ─── Breakpoints ─────────────────────────────────────────────────────────────
+// Viewport widths where layouts change, in px. Media queries cannot read custom
+// properties, so CSS gets them as @custom-media from breakpoints.css (needs
+// Lightning CSS with drafts.customMedia) and JS gets the same query strings
+// from MEDIA_QUERY, for matchMedia.
+
+export const BREAKPOINT = {
+  phone: 480,
+  tablet: 768,
+  desktop: 1024,
+} as const;
+
+// below-tablet stops a fraction of a pixel short of tablet-up, so a fractional
+// viewport width never matches both or neither.
+const JUST_BELOW = 0.02;
+
+export const MEDIA_QUERY = {
+  phone: `(max-width: ${BREAKPOINT.phone}px)`,
+  belowTablet: `(max-width: ${BREAKPOINT.tablet - JUST_BELOW}px)`,
+  tabletUp: `(min-width: ${BREAKPOINT.tablet}px)`,
+  desktopUp: `(min-width: ${BREAKPOINT.desktop}px)`,
+} as const;
+
 // ─── Color helpers ───────────────────────────────────────────────────────────
 // Use these in TSX/TS instead of raw rgb() strings.
 
