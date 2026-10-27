@@ -3,7 +3,7 @@
 // Formatter options left out on purpose use Biome's defaults: double quotes,
 // line width 80, trailing commas everywhere, semicolons always.
 {
-  "$schema": "https://biomejs.dev/schemas/2.6.2/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.6.3/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",

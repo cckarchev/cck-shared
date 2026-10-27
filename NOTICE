@@ -1,10 +1,11 @@
 cck-shared
-Shared configuration and design tokens for CCK projects
+==========
 
-This package ships the following third-party material.
+Shared configuration and design tokens for CCK projects. This package ships the
+following third-party material.
 
---------------------------------------------------------------------------------
-
+Fonts
+-----
 Big Noodle Titling (regular and oblique)
 Copyright (c) James Arboghast / Sentinel Type
 https://www.myfonts.com/collections/big-noodle-titling-font-sentinel-type
@@ -15,8 +16,6 @@ converted to WOFF2 for web delivery; the glyphs are unmodified. The font is not
 sold or redistributed on its own. Big Noodle Titling is a trademark of James
 Arboghast / Sentinel Type.
 
---------------------------------------------------------------------------------
-
 Barlow
 Copyright (c) 2017 The Barlow Project Authors (Jeremy Tribby)
 https://github.com/jpt/barlow
@@ -25,8 +24,6 @@ Licensed under the SIL Open Font License, Version 1.1
 (https://openfontlicense.org), included as fonts/barlow-OFL.txt. Shipped in
 fonts/ as barlow-400.woff2 and barlow-600.woff2, the latin subset served by
 Google Fonts, unmodified.
-
---------------------------------------------------------------------------------
 
 JetBrains Mono
 Copyright (c) 2020 The JetBrains Mono Project Authors
