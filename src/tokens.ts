@@ -1,7 +1,8 @@
 // CCK design tokens: the club palette and the scales every CCK project builds
 // on. TS/TSX imports the constants and helpers from
-// `@cckarchev/shared/tokens`; CSS imports `@cckarchev/shared/tokens.css`,
-// which scripts/writeTokensCss.ts generates from this file.
+// `@cckarchev/shared/tokens`; CSS imports `@cckarchev/shared/tokens.css` and
+// `@cckarchev/shared/breakpoints.css`, which scripts/writeTokensCss.ts
+// generates from this file.
 //
 // This file must stay self-contained (no imports): projects compile it with
 // their own TypeScript settings.

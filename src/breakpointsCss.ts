@@ -1,3 +1,4 @@
+import { toKebabCase } from "./kebabCase.ts";
 import { MEDIA_QUERY } from "./tokens.ts";
 
 const HEADER = [
@@ -5,9 +6,6 @@ const HEADER = [
   " * Import it at the top of any stylesheet that uses these media queries; it",
   " * emits no CSS of its own. Needs Lightning CSS with drafts.customMedia. */",
 ].join("\n");
-
-const toKebabCase = (name: string): string =>
-  name.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`);
 
 // The whole breakpoints.css file: one @custom-media per MEDIA_QUERY entry.
 export const breakpointsCss = (): string => {

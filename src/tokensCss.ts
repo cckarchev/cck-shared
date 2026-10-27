@@ -1,3 +1,4 @@
+import { toKebabCase } from "./kebabCase.ts";
 import {
   ACCENT,
   ACCENT_RGB,
@@ -58,9 +59,6 @@ const HEADER =
   "/* Generated from src/tokens.ts by `npm run generate`. Do not edit by hand. */";
 const INDENT = "  ";
 const LINE_WIDTH = 80;
-
-const toKebabCase = (name: string): string =>
-  name.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`);
 
 // One `--prefix-step` declaration per step of a token scale or role map.
 const scaleDeclarations = (

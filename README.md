@@ -56,13 +56,14 @@ declares them, which would be this package.
 ## Design tokens
 
 The club palette and the scales every CCK project builds on: spacing, type,
-tracking, leading, motion, measure, layers, border widths and breakpoints. The club site's
-look is the reference; the tools use the same tokens so they feel like part of
-it. Dark only, sharp corners, orange accent, bright teal for brand and focus.
+weights, tracking, leading, motion, measure, layers, border widths, the touch
+target and breakpoints. The club site's look is the reference; the tools use
+the same tokens so they feel like part of it. Dark only, sharp corners, orange
+accent, bright teal for brand and focus.
 
 `src/tokens.ts` is the source. `tokens.css` and `breakpoints.css` are generated
-from it with
-`npm run generate`, and a test fails when the two drift apart.
+from it with `npm run generate`, and a test fails when either drifts apart from
+it.
 
 In CSS, import the font faces and the tokens once, from the global stylesheet:
 
@@ -83,21 +84,25 @@ import { ACCENT, text, withAlpha } from "@cckarchev/shared/tokens";
 
 ### Naming
 
-| Prefix                        | Holds                                  |
-| :---------------------------- | :------------------------------------- |
-| `--color-bg-*`, `--color-*`   | The palette (`--color-accent`)         |
-| `--rgb-*`                     | RGB channels, space separated          |
-| `--alpha-<percent>`           | The opacity scale                      |
-| `--color-text-*`              | Text tiers, strong to faint            |
-| `--color-border-*`            | Border colors by state                 |
-| `--color-surface-*`           | Panels, fields, scrims and tints       |
-| `--color-highlight-*`         | The one accent card that stands out    |
-| `--color-secondary-*`         | Teal fills and borders                 |
-| `--border-*`, `--focus-ring`  | Shorthands built from the tokens above |
-| `--font-*`, `--font-size-*`   | Families and the type scale, in px     |
-| `--space-*`, `--measure-*`    | Spacing and content widths, in px      |
-| `--tracking-*`, `--leading-*` | Letter spacing (em) and line height    |
-| `--layer-*`, `--duration-*`   | z-index layers and motion, in ms       |
+| Prefix                                | Holds                                          |
+| :------------------------------------ | :--------------------------------------------- |
+| `--color-bg-*`, `--color-*`           | The palette (`--color-accent`)                 |
+| `--rgb-*`                             | RGB channels, space separated                  |
+| `--alpha-<percent>`                   | The opacity scale                              |
+| `--color-text-*`, `--color-disabled`  | Text tiers, strong to faint, and disabled      |
+| `--color-border-*`                    | Border colors by state                         |
+| `--color-surface-*`                   | Panels, fields, scrims and tints               |
+| `--color-highlight-*`                 | The one accent card that stands out            |
+| `--color-secondary-*`                 | Teal fills and borders                         |
+| `--color-focus`, `-error`, `-warning` | State colors, aliased to the palette           |
+| `--border-*`, `--focus-ring*`         | Shorthands built from the tokens above         |
+| `--background-selected`               | The accent tint for a picked option or row     |
+| `--font-*`, `--font-size-*`           | Families and the type scale, in px             |
+| `--font-weight-*`                     | The weight scale, regular and semibold         |
+| `--space-*`, `--measure-*`            | Spacing and content widths, in px              |
+| `--tracking-*`, `--leading-*`         | Letter spacing (em) and line height            |
+| `--border-width-*`, `--touch-target`  | Border widths and the smallest tap area, in px |
+| `--layer-*`, `--duration-*`           | z-index layers and motion, in ms               |
 
 Compose a translucent color from a channel and a step of the scale instead of a
 loose number: `rgb(var(--rgb-accent) / var(--alpha-20))`.
