@@ -18,11 +18,16 @@
     "fonts",
     "NOTICE"
   ],
+  "engines": {
+    "node": ">=24.21.0"
+  },
   "scripts": {
+    "verify": "npm run check && npm run typecheck && npm test",
     "check": "biome check",
     "check:fix": "biome check --write",
     "typecheck": "tsc",
     "test": "vitest run",
+    "test:watch": "vitest",
     "generate": "node scripts/writeTokensCss.ts"
   },
   "peerDependencies": {

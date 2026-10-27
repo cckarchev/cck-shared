@@ -1,1 +1,33 @@
-node_modules
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# Test coverage
+coverage/
+
+# Logs
+*.log
+
+# Environment and local secrets
+.env
+.env.*
+!.env.example
+.dev.vars
+*.local
+
+# Cloudflare local state
+.wrangler/
+
+# Local working docs, not published
+docs/
+.superpowers/
+
+# Editors and OS
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+.idea/
+.DS_Store
