@@ -1,8 +1,8 @@
 // CCK design tokens: the club palette and the scales every CCK project builds
 // on. TS/TSX imports the constants and helpers from
 // `@cckarchev/shared/tokens`; CSS imports `@cckarchev/shared/tokens.css` and
-// `@cckarchev/shared/breakpoints.css`, which scripts/writeTokensCss.ts
-// generates from this file.
+// `@cckarchev/shared/breakpoints.css`, which scripts/writeCss.ts generates from
+// this file.
 //
 // This file must stay self-contained (no imports): projects compile it with
 // their own TypeScript settings.
@@ -199,16 +199,26 @@ export const MEASURE = {
 } as const;
 
 // ─── Layer scale ─────────────────────────────────────────────────────────────
-// Every z-index names its layer from this scale. Exported as CSS custom
-// properties (--layer-content and so on). Content sits above a decorative page
-// background, the header above content, and overlays above everything.
+// Every z-index names its layer from this scale, by what the element is.
+// Exported as CSS custom properties (--layer-content and so on). A floating
+// element only competes with the layers of its own stacking context, so a
+// popover inside content still scrolls under a sticky bar.
 
 export const LAYER = {
+  // Lifted over its siblings, with no meaning across the page.
   raised: 1,
+  // Page content over a decorative background.
   content: 2,
-  header: 3,
-  menu: 10,
+  // The page header and sticky bars.
+  bar: 3,
+  // Modal dialogs and their scrim.
   overlay: 50,
+  // Floating UI anchored to a trigger: tooltips, popovers, menus. Above
+  // overlays, so one opened from a dialog shows.
+  popover: 60,
+  // Full-screen panels, which cover any popover left open.
+  sheet: 70,
+  toast: 80,
 } as const;
 
 // ─── Border width scale ──────────────────────────────────────────────────────

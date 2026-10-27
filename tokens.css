@@ -130,9 +130,11 @@
   --border-width-heavy: 4px;
   --layer-raised: 1;
   --layer-content: 2;
-  --layer-header: 3;
-  --layer-menu: 10;
+  --layer-bar: 3;
   --layer-overlay: 50;
+  --layer-popover: 60;
+  --layer-sheet: 70;
+  --layer-toast: 80;
   --touch-target: 44px;
 
   /* Motion */

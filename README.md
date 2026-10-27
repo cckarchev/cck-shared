@@ -8,7 +8,7 @@ the same standards and looks the same without copying files around.
 Install it as a git dependency pinned to a tag, next to Biome itself:
 
 ```sh
-npm install --save-dev github:cckarchev/cck-shared#v1.4.0 @biomejs/biome@2.6.3
+npm install --save-dev github:cckarchev/cck-shared#v1.5.0 @biomejs/biome@2.6.3
 ```
 
 Then extend the preset from the project's `biome.jsonc` and add only what is
